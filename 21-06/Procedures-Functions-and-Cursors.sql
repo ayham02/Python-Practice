@@ -42,3 +42,48 @@
 -- Non-Deterministic Functions:
 -- NOW() -> Returns the current date and time, which changes with each call
 -- RAND() -> Returns a random number, different each time it's called
+
+-- Procedures
+-- A set of SQL statements saved and reused. Similar to a recipe: write once, use many times.
+
+-- Key Points:
+-- Reusable Code: Reduces repetition.
+-- Encapsulation: Groups multiple SQL statements.
+-- Parameters: Can take inputs and return outputs.
+-- Efficiency: Improves performance and maintainability.
+
+-- 1. Create Procedure:
+
+    CREATE PROCEDURE ProcedureName (parameters)
+    BEGIN
+    -- SQL statements
+    END;
+
+-- 2. Call Procedure:
+
+    CALL ProcedureName(arguments);
+
+-- Example:
+-- 1 .Create Procedure:
+
+    CREATE PROCEDURE AddEmployee(
+        IN emp_name VARCHAR(100),
+        IN emp_age INT,
+        IN emp_department VARCHAR(50)
+    )
+    BEGIN
+        INSERT INTO employees (name, age, department)
+        VALUES (emp_name, emp_age, emp_department);
+    END;
+
+-- Call Procedure:
+
+    CALL AddEmployee('John Doe', 30, 'Sales');
+
+-- DROPPING PROCEDURES
+-- EXAMPLE:
+-- Dropping select_all_products
+
+DROP PROCEDURE select_all_products;
+
+
